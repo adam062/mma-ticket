@@ -1,0 +1,132 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../views/**/*.blade.php';
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+        'Segoe UI Emoji', 'Noto Color Emoji';
+    --font-mono: 'Fira Code', ui-monospace, 'Courier New', monospace;
+}
+
+@custom-font-face {
+    font-family: 'Tajawal';
+    font-style: normal;
+    font-weight: 400 700;
+    font-display: swap;
+    src: url('https://fonts.gstatic.com/s/texogonia/v14/KFOlCnqEu9c2t3o4JhJV7LlEmZ6oHQk.ttf') format('truetype');
+}
+
+@layer base {
+    body {
+        @apply bg-black text-gray-200 antialiased;
+    }
+
+    ::selection {
+        @apply bg-red-500 text-white;
+    }
+}
+
+@tailwind utilities;
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.page-enter {
+    opacity: 0;
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+.card-hover {
+    @apply transition-all duration-300 ease-in-out;
+}
+
+.card-hover:hover {
+    @apply transform scale-105 shadow-xl;
+}
+
+.btn {
+    @apply transition-all duration-200 ease-in-out;
+}
+
+.btn:hover {
+    @apply transform scale-105;
+}
+
+.btn:active {
+    @apply transform scale-95;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.spinner {
+    animation: spin 1s linear infinite;
+}
+
+.input-focus {
+    @apply transition-all duration-200 ease-in-out;
+}
+
+.input-focus:focus {
+    @apply ring-2 ring-red-500 border-transparent;
+}
+
+.border-glow {
+    @apply border-gray-700 focus-within:border-red-500 focus-within:ring-2 focus-within:ring-red-500/20;
+}
+
+.font-arabic {
+    font-family: 'Tajawal', ui-sans-serif, system-ui, sans-serif;
+}
+
+[dir="rtl"] .ml-1 { margin-right: 0; margin-left: 0.25rem; }
+[dir="rtl"] .ml-2 { margin-right: 0; margin-left: 0.5rem; }
+[dir="rtl"] .ml-3 { margin-right: 0; margin-left: 0.75rem; }
+[dir="rtl"] .ml-4 { margin-right: 0; margin-left: 1rem; }
+[dir="rtl"] .mr-1 { margin-left: 0; margin-right: 0.25rem; }
+[dir="rtl"] .mr-2 { margin-left: 0; margin-right: 0.5rem; }
+[dir="rtl"] .mr-3 { margin-left: 0; margin-right: 0.75rem; }
+[dir="rtl"] .mr-4 { margin-left: 0; margin-right: 1rem; }
+[dir="rtl"] .pl-1 { padding-right: 0; padding-left: 0.25rem; }
+[dir="rtl"] .pl-2 { padding-right: 0; padding-left: 0.5rem; }
+[dir="rtl"] .pl-3 { padding-right: 0; padding-left: 0.75rem; }
+[dir="rtl"] .pl-4 { padding-right: 0; padding-left: 1rem; }
+[dir="rtl"] .pr-1 { padding-left: 0; padding-right: 0.25rem; }
+[dir="rtl"] .pr-2 { padding-left: 0; padding-right: 0.5rem; }
+[dir="rtl"] .pr-3 { padding-left: 0; padding-right: 0.75rem; }
+[dir="rtl"] .pr-4 { padding-left: 0; padding-right: 1rem; }
+[dir="rtl"] .rounded-l-lg { border-start-start-radius: 0; border-end-start-radius: 0; border-start-end-radius: 0.5rem; border-end-end-radius: 0.5rem; }
+[dir="rtl"] .rounded-r-lg { border-start-start-radius: 0.5rem; border-end-start-radius: 0.5rem; border-start-end-radius: 0; border-end-end-radius: 0; }
+[dir="rtl"] .space-x-2 > :not([hidden]) ~ :not([hidden]) { margin-right: 0; margin-left: 0.5rem; }
+[dir="rtl"] .space-x-3 > :not([hidden]) ~ :not([hidden]) { margin-right: 0; margin-left: 0.75rem; }
+[dir="rtl"] .space-x-4 > :not([hidden]) ~ :not([hidden]) { margin-right: 0; margin-left: 1rem; }
+[dir="rtl"] .text-left { text-align: right; }
+[dir="rtl"] .text-right { text-align: left; }
+[dir="rtl"] .float-left { float: right; }
+[dir="rtl"] .float-right { float: left; }
+[dir="rtl"] .ml-auto { margin-left: 0; margin-right: auto; }
+[dir="rtl"] .mr-auto { margin-right: 0; margin-left: auto; }
+[dir="rtl"] .border-l-4 { border-left-width: 0; border-right-width: 4px; }
+[dir="rtl"] .border-r-4 { border-right-width: 0; border-left-width: 4px; }
