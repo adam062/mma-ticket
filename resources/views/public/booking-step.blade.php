@@ -65,8 +65,8 @@
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                         @foreach ($ticketTypes as $type)
                         <div class="group">
-                            <div class="{{ ($data['ticket_type_id'] ?? '') == $type->id ? 'border-red-500 bg-red-900/20 scale-105' : 'border-gray-700 bg-gray-900 hover:border-red-500 hover:scale-105 hover:shadow-xl' }} border-2 rounded-xl p-6 text-center cursor-pointer transition-all duration-300">
-                                <input type="radio" name="ticket_type_id" value="{{ $type->id }}" {{ ($data['ticket_type_id'] ?? '') == $type->id ? 'checked' : '' }} class="sr-only" id="type_{{ $type->id }}">
+                            <input type="radio" name="ticket_type_id" value="{{ $type->id }}" {{ ($data['ticket_type_id'] ?? '') == $type->id ? 'checked' : '' }} class="sr-only peer" id="type_{{ $type->id }}">
+                            <div class="border-2 rounded-xl p-6 text-center cursor-pointer transition-all duration-300 border-gray-700 bg-gray-900 hover:border-red-500 hover:scale-105 hover:shadow-xl peer-checked:border-red-500 peer-checked:bg-red-900/20 peer-checked:scale-105 peer-checked:shadow-xl">
                                 <label for="type_{{ $type->id }}" class="cursor-pointer">
                                     <h3 class="font-bold text-lg text-gray-200 mb-3 group-hover:text-red-400 transition-colors">{{ $type->name_en }}</h3>
                                     <p class="text-3xl font-bold text-red-400 my-3">{{ number_format($type->price) }} EGP</p>
@@ -103,8 +103,8 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         @foreach ($paymentMethods as $method)
                         <div class="group">
-                            <label class="{{ ($data['payment_method'] ?? '') == $method['id'] ? 'border-red-500 bg-red-900/20 scale-105' : 'border-gray-700 bg-gray-900 hover:border-red-500 hover:scale-105 hover:shadow-xl' }} border-2 rounded-xl p-6 flex items-center space-x-4 cursor-pointer transition-all duration-300">
-                                <input type="radio" name="payment_method" value="{{ $method['id'] }}" {{ ($data['payment_method'] ?? '') == $method['id'] ? 'checked' : '' }} class="sr-only">
+                            <input type="radio" name="payment_method" value="{{ $method['id'] }}" {{ ($data['payment_method'] ?? '') == $method['id'] ? 'checked' : '' }} class="sr-only peer" id="pm_{{ $method['id'] }}">
+                            <label for="pm_{{ $method['id'] }}" class="border-2 rounded-xl p-6 flex items-center space-x-4 cursor-pointer transition-all duration-300 border-gray-700 bg-gray-900 hover:border-red-500 hover:scale-105 hover:shadow-xl peer-checked:border-red-500 peer-checked:bg-red-900/20 peer-checked:scale-105 peer-checked:shadow-xl">
                                 <div class="text-3xl transition-transform duration-300 group-hover:scale-110">
                                     @if ($method['id'] === 'vodafone_cash')
                                         📱
