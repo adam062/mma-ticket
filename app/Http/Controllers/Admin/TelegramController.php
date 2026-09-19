@@ -66,8 +66,8 @@ class TelegramController extends Controller
                 return response('ok', 200);
             }
 
-            if (trim($text) === '/start' || trim($text) === '/start') {
-                $service->sendMessage($chatId, __('🤖 MMA Championship Bot\n\nTo link your account, click the link from the website.\n\nTo verify a ticket, send the serial number.'));
+            if (trim($text) === '/start') {
+                $service->sendMessage($chatId, __("🤖 MMA Championship Bot\n\nTo link your account, click the link from the website.\n\nTo verify a ticket, send the serial number."));
                 return response('ok', 200);
             }
 
@@ -75,7 +75,7 @@ class TelegramController extends Controller
                 $ticket = \App\Models\Ticket::where('serial', trim($text))->first();
 
                 if ($ticket) {
-                    $service->sendMessage($chatId, __('🎫 Ticket: :serial\nStatus: :status\nType: :type\nEvent: :event', [
+                    $service->sendMessage($chatId, __("🎫 Ticket: :serial\nStatus: :status\nType: :type\nEvent: :event", [
                         'serial' => $ticket->serial,
                         'status' => $ticket->getStatusLabel(),
                         'type' => $ticket->ticketType->name,

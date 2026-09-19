@@ -3,10 +3,8 @@
 namespace App\Http\Controllers\Public;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Public\StoreBookingRequest;
 use App\Models\Booking;
 use App\Models\PaymentProof;
-use App\Models\Setting;
 use App\Models\TicketType;
 use App\Services\TicketService;
 use App\Services\TelegramService;
@@ -65,21 +63,16 @@ class BookingController extends Controller
         } elseif ($step === 2) {
             $validated = $request->validate([
                 'ticket_type_id' => ['required', Rule::exists('ticket_types', 'id')],
+                'quantity' => 'required|integer|min:1|max:10',
             ], [
                 'ticket_type_id.required' => __('The ticket type field is required.'),
                 'ticket_type_id.exists' => __('The selected ticket type is invalid.'),
-            ]);
-            $data = array_merge($data, $validated);
-        } elseif ($step === 3) {
-            $validated = $request->validate([
-                'quantity' => 'required|integer|min:1|max:10',
-            ], [
                 'quantity.required' => __('The quantity field is required.'),
                 'quantity.min' => __('Please select at least 1 ticket.'),
                 'quantity.max' => __('The maximum is 10 tickets.'),
             ]);
             $data = array_merge($data, $validated);
-        } elseif ($step === 4) {
+        } elseif ($step === 3) {
             $validated = $request->validate([
                 'payment_method' => ['required', Rule::in(['vodafone_cash', 'instapay'])],
             ], [
@@ -87,8 +80,8 @@ class BookingController extends Controller
                 'payment_method.in' => __('The selected payment method is invalid.'),
             ]);
             $data = array_merge($data, $validated);
-        } elseif ($step === 5) {
-            $validated = $request->validate([
+        } elseif ($step === 4) {
+            $request->validate([
                 'transfer_phone' => 'required|string|min:5|max:50',
                 'screenshot' => 'required|image|mimes:jpg,jpeg,png,webp|max:5120',
             ], [
@@ -99,7 +92,7 @@ class BookingController extends Controller
                 'screenshot.mimes' => __('Supported formats: JPG, JPEG, PNG, WEBP.'),
                 'screenshot.max' => __('The image may not be greater than 5 MB.'),
             ]);
-            $data = array_merge($data, $validated);
+            $data['transfer_phone'] = $request->input('transfer_phone');
         }
 
         session(['booking_data' => $data]);
@@ -115,7 +108,7 @@ class BookingController extends Controller
     {
         $ticketType = TicketType::findOrFail($data['ticket_type_id']);
 
-        $unitPrice = app(TicketService::class)->calculateTotal($ticketType->price, 1);
+        $unitPrice = $ticketType->price;
         $totalAmount = app(TicketService::class)->calculateTotal($ticketType->price, $data['quantity']);
 
         return DB::transaction(function () use ($data, $ticketType, $unitPrice, $totalAmount, $request) {

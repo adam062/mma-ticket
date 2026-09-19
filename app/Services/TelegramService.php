@@ -107,7 +107,7 @@ class TelegramService
 
     public function setWebhook(): ?array
     {
-        if (! $this->botToken) {
+        if (! $this->isConfigured()) {
             return null;
         }
 

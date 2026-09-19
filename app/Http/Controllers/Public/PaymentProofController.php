@@ -3,15 +3,11 @@
 namespace App\Http\Controllers\Public;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Public\StoreBookingRequest;
 use App\Models\Booking;
 use App\Models\PaymentProof;
-use App\Models\Setting;
-use App\Models\TicketType;
 use App\Notifications\BookingStatusChangedNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Notification;
-use Illuminate\Support\Facades\Storage;
 
 class PaymentProofController extends Controller
 {

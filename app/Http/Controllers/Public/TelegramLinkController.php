@@ -3,16 +3,16 @@
 namespace App\Http\Controllers\Public;
 
 use App\Http\Controllers\Controller;
-use App\Models\Setting;
+use App\Models\Booking;
 use App\Models\TelegramLink;
 use App\Services\TelegramService;
 use Illuminate\Http\Request;
 
 class TelegramLinkController extends Controller
 {
-    public function show(\App\Models\Booking $booking)
+    public function show(Booking $booking)
     {
-        if (! $booking->telegramLink || ! $booking->telegramLink->where('status', 'pending')->exists()) {
+        if (! $booking->telegramLink()->where('status', 'pending')->exists()) {
             return redirect()->route('booking.show', $booking->reference)
                 ->with('info', __('No pending Telegram linking.'));
         }
@@ -23,7 +23,7 @@ class TelegramLinkController extends Controller
         return view('public.telegram-link', compact('booking', 'link', 'service'));
     }
 
-    public function store(Request $request, \App\Models\Booking $booking, TelegramService $service)
+    public function store(Request $request, Booking $booking, TelegramService $service)
     {
         $link = TelegramLink::where('booking_id', $booking->id)
             ->where('status', 'pending')

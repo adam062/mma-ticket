@@ -37,17 +37,20 @@ class LoginController extends Controller
 
         $user = Auth::user();
 
-        if ($request->is('admin/*') && ! $user->isAdmin()) {
+        $isAdminRoute = $request->route()->named('login.admin.post');
+        $isGateRoute = $request->route()->named('login.gate.post');
+
+        if ($isAdminRoute && ! $user->isAdmin()) {
             Auth::logout();
             return back()->withErrors(['email' => __('You do not have admin access.')]);
         }
 
-        if ($request->is('gate/*') && ! $user->isGateMan()) {
+        if ($isGateRoute && ! $user->isGateMan()) {
             Auth::logout();
             return back()->withErrors(['email' => __('You do not have gate access.')]);
         }
 
-        if ($request->is('admin/*') || $request->route()->named('login.admin.post')) {
+        if ($isAdminRoute) {
             return redirect()->intended(route('admin.dashboard'));
         }
 

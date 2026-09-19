@@ -41,7 +41,7 @@ class SendTicketByTelegram implements ShouldQueue
 
             $result = $service->sendMessage($telegramLink->chat_id, $message);
 
-            if (! $result || isset($result['ok']) && $result['ok'] === false) {
+            if ($result === null || (isset($result['ok']) && $result['ok'] === false)) {
                 TicketDelivery::record($this->ticket->id, 'telegram', 'failed', json_encode($result ?? 'No response'));
                 $service->sendDocument($telegramLink->chat_id, $fullPath, $message);
                 return;
