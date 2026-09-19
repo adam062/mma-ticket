@@ -8,22 +8,22 @@
     @stack('head')
 </head>
 <body class="{{ app()->getLocale() === 'ar' ? 'font-arabic' : '' }}">
-    <div class="flex h-screen bg-black">
+    <div class="flex h-screen bg-gray-950">
         @include('layouts.partials.admin-sidebar')
         <div class="flex-1 flex flex-col overflow-hidden">
-            <header class="bg-black shadow-sm border-b border-gray-800">
+            <header class="bg-gray-950 shadow-sm border-b border-gray-800">
                 <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-                    <h1 class="text-xl font-bold text-gray-500">{{ __('Admin Dashboard') }}</h1>
+                    <h1 class="text-xl font-bold text-gray-200">{{ __('Admin Dashboard') }}</h1>
                     <div class="flex items-center space-x-4">
-                        <span class="text-sm text-gray-500">{{ auth()->user()->name }}</span>
+                        <span class="text-sm text-gray-300">{{ auth()->user()->name }}</span>
                         @if (app()->getLocale() === 'ar')
-                            <a href="{{ route('locale.switch', 'en') }}" class="text-sm px-3 py-1 bg-black rounded hover:bg-gray-800">EN</a>
+                            <a href="{{ route('locale.switch', 'en') }}" class="text-sm px-3 py-1 bg-gray-900 text-gray-400 rounded hover:bg-gray-800 hover:text-white">EN</a>
                         @else
-                            <a href="{{ route('locale.switch', 'ar') }}" class="text-sm px-3 py-1 bg-black rounded text-white hover:bg-gray-900">العربية</a>
+                            <a href="{{ route('locale.switch', 'ar') }}" class="text-sm px-3 py-1 bg-gray-900 text-gray-400 rounded hover:bg-gray-800 hover:text-white">العربية</a>
                         @endif
                         <form method="POST" action="{{ route('admin.logout') }}">
                             @csrf
-                                <button type="submit" class="text-sm text-gray-400 hover:text-white">{{ __('Logout') }}</button>
+                            <button type="submit" class="text-sm text-gray-300 hover:text-white">{{ __('Logout') }}</button>
                         </form>
                     </div>
                 </div>

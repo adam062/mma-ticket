@@ -45,7 +45,7 @@ function startScanner() {
 function stopScanner() {
     scanning = false;
     if (video && video.srcObject) {
-        video.srcObject.getTracks().forEach(track => track.stop());
+        video.srcObject.getTracks().forEach(function(track) { track.stop(); });
     }
 }
 

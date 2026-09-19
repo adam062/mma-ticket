@@ -10,32 +10,33 @@
         @endif
     </div>
     <h1 class="text-4xl font-bold mb-4
-        @if ($status === 'valid') text-green-500
-        @elseif ($status === 'used') text-yellow-500
-        @else text-red-500
+        @if ($status === 'valid') text-green-400
+        @elseif ($status === 'used') text-yellow-400
+        @else text-red-400
         @endif">{{ $message }}</h1>
+
     @if (app()->getLocale() === 'ar')
         <h2 class="text-2xl font-bold mb-8
-            @if ($status === 'valid') text-green-500
-            @elseif ($status === 'used') text-yellow-500
-            @else text-red-500
+            @if ($status === 'valid') text-green-400
+            @elseif ($status === 'used') text-yellow-400
+            @else text-red-400
             @endif">{{ $message_ar }}</h2>
     @endif
 
     @if ($ticket && $status === 'valid')
     <div class="bg-gray-900 border border-gray-800 rounded-xl shadow-lg p-8 mb-8">
-        <h2 class="text-xl font-bold text-gray-500 mb-6">{{ __('Ticket Details') }}</h2>
+        <h2 class="text-xl font-bold text-gray-200 mb-6">{{ __('Ticket Details') }}</h2>
         <div class="grid grid-cols-2 gap-4 text-left">
-            <div><p class="text-sm text-gray-500">{{ __('Customer Name') }}</p><p class="font-bold text-gray-300">{{ $ticket->booking->name }}</p></div>
-            <div><p class="text-sm text-gray-500">{{ __('Ticket Serial') }}</p><p class="font-mono font-bold text-gray-300">{{ $ticket->serial }}</p></div>
-            <div><p class="text-sm text-gray-500">{{ __('Ticket Type') }}</p><p class="font-bold text-gray-300">{{ $ticket->ticketType->name_en }}</p></div>
-            <div><p class="text-sm text-gray-500">{{ __('Event') }}</p><p class="font-bold text-gray-300">{{ \App\Models\Setting::cached('event', 'name_en', 'MMA Championship') }}</p></div>
-            <div><p class="text-sm text-gray-500">{{ __('Status') }}</p><p class="font-bold text-gray-300">{{ $ticket->getStatusLabel() }}</p></div>
+            <div><p class="text-sm text-gray-400">{{ __('Customer Name') }}</p><p class="font-bold text-gray-300">{{ $ticket->booking->name }}</p></div>
+            <div><p class="text-sm text-gray-400">{{ __('Ticket Serial') }}</p><p class="font-mono font-bold text-gray-300">{{ $ticket->serial }}</p></div>
+            <div><p class="text-sm text-gray-400">{{ __('Ticket Type') }}</p><p class="font-bold text-gray-300">{{ $ticket->ticketType->name_en }}</p></div>
+            <div><p class="text-sm text-gray-400">{{ __('Event') }}</p><p class="font-bold text-gray-300">{{ \App\Models\Setting::cached('event', 'name_en', 'MMA Championship') }}</p></div>
+            <div><p class="text-sm text-gray-400">{{ __('Status') }}</p><p class="font-bold text-gray-300">{{ $ticket->getStatusLabel() }}</p></div>
         </div>
 
         <form method="POST" action="{{ route('gate.ticket.use', $ticket) }}" class="mt-8">
             @csrf
-            <button type="submit" onclick="return confirm('{{ __('Are you sure you want to allow entry?') }}')" class="w-full bg-green-600 hover:bg-green-700 text-white py-4 px-6 rounded-xl font-bold text-xl transition">
+            <button type="submit" onclick="return confirm('{{ __('Are you sure you want to allow entry?') }}')" class="w-full bg-green-600 hover:bg-green-700 text-white py-4 px-6 rounded-xl font-bold text-xl transition shadow-lg shadow-green-500/30">
                 {{ __('ALLOW ENTRY') }}
             </button>
         </form>
