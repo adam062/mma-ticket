@@ -20,7 +20,7 @@
                 @endif
                 <form method="POST" action="{{ route('gate.logout') }}">
                     @csrf
-                    <button type="submit" class="text-sm text-gray-500 hover:text-white">{{ __('Logout') }}</button>
+                    <button type="submit" class="text-sm text-gray-400 hover:text-white">{{ __('Logout') }}</button>
                 </form>
             </div>
         </div>

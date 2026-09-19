@@ -3,14 +3,22 @@
 @section('content')
 <div class="min-h-screen flex items-center justify-center py-12">
     <div class="max-w-md w-full bg-black rounded-xl shadow-lg p-8 text-center">
-        <h1 class="text-2xl font-bold text-gray-500 mb-6">{{ __('Login') }}</h1>
+        <div class="mb-8">
+            <div class="w-20 h-20 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span class="text-5xl">🎟️</span>
+            </div>
+            <h1 class="text-3xl font-bold text-gray-500">{{ config('app.name', 'MMA Championship') }}</h1>
+        </div>
+
         <p class="text-gray-500 mb-8">{{ __('Select your access type') }}</p>
 
         <div class="space-y-4">
-            <a href="{{ route('login.admin') }}" class="block w-full font-bold text-white py-3 px-6 rounded-lg transition">
+            <a href="{{ route('login.admin') }}" class="block w-full bg-red-500 hover:bg-red-600 text-white font-bold py-4 px-6 rounded-xl flex flex-col items-center gap-2 transition transform hover:scale-105">
+                <span class="text-3xl">👑</span>
                 {{ __('Admin Login') }}
             </a>
-            <a href="{{ route('login.gate') }}" class="block w-full bg-black hover:bg-black text-white font-bold py-3 px-6 rounded-lg transition">
+            <a href="{{ route('login.gate') }}" class="block w-full bg-gray-800 hover:bg-gray-700 text-white font-bold py-4 px-6 rounded-xl flex flex-col items-center gap-2 transition transform hover:scale-105">
+                <span class="text-3xl">🎫</span>
                 {{ __('Gate Login') }}
             </a>
         </div>
