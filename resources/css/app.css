@@ -22,7 +22,7 @@
 
 @layer base {
     body {
-        @apply bg-black text-gray-200 antialiased;
+        @apply bg-gray-950 text-gray-200 antialiased;
     }
 
     ::selection {

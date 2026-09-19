@@ -1,43 +1,43 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="min-h-screen bg-black py-12">
+<div class="min-h-screen bg-gray-950 py-12">
     <div class="container mx-auto px-4 max-w-3xl">
-        <div class="bg-black rounded-xl shadow-lg p-8">
-            <h1 class="text-2xl font-bold text-gray-500 mb-6">{{ __('Booking') }}: {{ $booking->reference }}</h1>
+        <div class="bg-gray-950 rounded-xl shadow-lg p-8">
+            <h1 class="text-2xl font-bold text-gray-300 mb-6">{{ __('Booking') }}: {{ $booking->reference }}</h1>
 
             <div class="grid grid-cols-2 gap-4 mb-6">
                 <div>
-                    <p class="text-sm text-gray-500">{{ __('Customer Name') }}</p>
+                    <p class="text-sm text-gray-300">{{ __('Customer Name') }}</p>
                     <p class="font-bold">{{ $booking->name }}</p>
                 </div>
                 <div>
-                    <p class="text-sm text-gray-500">{{ __('Status') }}</p>
+                    <p class="text-sm text-gray-300">{{ __('Status') }}</p>
                     <span class="px-3 py-1 rounded-full text-sm font-medium {{ $booking->getStatusColorClass() }}">{{ $booking->getStatusLabel() }}</span>
                 </div>
                 <div>
-                    <p class="text-sm text-gray-500">{{ __('Phone') }}</p>
+                    <p class="text-sm text-gray-300">{{ __('Phone') }}</p>
                     <p class="font-bold">{{ $booking->phone }}</p>
                 </div>
                 <div>
-                    <p class="text-sm text-gray-500">{{ __('Email') }}</p>
+                    <p class="text-sm text-gray-300">{{ __('Email') }}</p>
                     <p class="font-bold">{{ $booking->email }}</p>
                 </div>
             </div>
 
             <div class="mb-8">
-                <h2 class="text-xl font-bold text-gray-500 mb-4">{{ __('Payment Proof') }}</h2>
+                <h2 class="text-xl font-bold text-gray-300 mb-4">{{ __('Payment Proof') }}</h2>
                 <div class="grid grid-cols-2 gap-4">
                     <div>
-                        <p class="text-sm text-gray-500">{{ __('Payment Method') }}</p>
+                        <p class="text-sm text-gray-300">{{ __('Payment Method') }}</p>
                         <p class="font-bold">{{ __($proof->payment_method) }}</p>
                     </div>
                     <div>
-                        <p class="text-sm text-gray-500">{{ __('Transfer Phone') }}</p>
+                        <p class="text-sm text-gray-300">{{ __('Transfer Phone') }}</p>
                         <p class="font-bold">{{ $proof->transfer_phone }}</p>
                     </div>
                     <div class="md:col-span-2">
-                        <p class="text-sm text-gray-500 mb-2">{{ __('Screenshot') }}</p>
+                        <p class="text-sm text-gray-300 mb-2">{{ __('Screenshot') }}</p>
                         <img src="{{ asset('storage/' . $proof->screenshot_path) }}" alt="Payment screenshot" class="max-h-64 rounded-lg border border-gray-800">
                     </div>
                 </div>
@@ -81,7 +81,7 @@
         </div>
 
         <div class="text-center">
-            <a href="{{ route('home') }}" class="text-gray-500 hover:text-gray-500">{{ __('← Back to Home') }}</a>
+            <a href="{{ route('home') }}" class="text-gray-400 hover:text-red-500">{{ __('← Back to Home') }}</a>
         </div>
     </div>
 </div>

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="min-h-screen bg-black py-12">
+<div class="min-h-screen bg-gray-950 py-12">
     <div class="container mx-auto px-4 max-w-3xl">
         <div class="mb-8 animate-in fade-in duration-500">
             <div class="flex justify-between mb-3">
@@ -30,21 +30,21 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="group">
                             <label class="block text-sm font-medium mb-2 text-gray-400 transition-colors group-focus-within:text-red-400">{{ __('Full Name') }}</label>
-                            <input type="text" name="full_name" value="{{ old('full_name', $data['full_name'] ?? '') }}" required class="w-full px-4 py-3 bg-gray-950 border border-gray-700 rounded-xl text-gray-200 transition-all duration-300 input-focus placeholder-gray-600">
+                            <input type="text" name="full_name" value="{{ old('full_name', $data['full_name'] ?? '') }}" required class="w-full px-4 py-3 bg-gray-950 border border-gray-700 rounded-xl text-gray-200 min-h-[44px] transition-all duration-300 input-focus placeholder-gray-600">
                             @error('full_name')
                             <p class="text-red-400 text-xs mt-1 flex items-center animate-in fade-in"><svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg> {{ $message }}</p>
                             @enderror
                         </div>
                         <div class="group">
                             <label class="block text-sm font-medium mb-2 text-gray-400 transition-colors group-focus-within:text-red-400">{{ __('Phone Number') }}</label>
-                            <input type="tel" name="phone_number" value="{{ old('phone_number', $data['phone_number'] ?? '') }}" required class="w-full px-4 py-3 bg-gray-950 border border-gray-700 rounded-xl text-gray-200 transition-all duration-300 input-focus placeholder-gray-600">
+                            <input type="tel" name="phone_number" value="{{ old('phone_number', $data['phone_number'] ?? '') }}" required class="w-full px-4 py-3 bg-gray-950 border border-gray-700 rounded-xl text-gray-200 min-h-[44px] transition-all duration-300 input-focus placeholder-gray-600">
                             @error('phone_number')
                             <p class="text-red-400 text-xs mt-1 flex items-center animate-in fade-in"><svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg> {{ $message }}</p>
                             @enderror
                         </div>
                         <div class="md:col-span-2 group">
                             <label class="block text-sm font-medium mb-2 text-gray-400 transition-colors group-focus-within:text-red-400">{{ __('Email Address') }}</label>
-                            <input type="email" name="email" value="{{ old('email', $data['email'] ?? '') }}" required class="w-full px-4 py-3 bg-gray-950 border border-gray-700 rounded-xl text-gray-200 transition-all duration-300 input-focus placeholder-gray-600">
+                            <input type="email" name="email" value="{{ old('email', $data['email'] ?? '') }}" required class="w-full px-4 py-3 bg-gray-950 border border-gray-700 rounded-xl text-gray-200 min-h-[44px] transition-all duration-300 input-focus placeholder-gray-600">
                             @error('email')
                             <p class="text-red-400 text-xs mt-1 flex items-center animate-in fade-in"><svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg> {{ $message }}</p>
                             @enderror
@@ -171,7 +171,7 @@
                         <div class="group">
                             <label class="block text-sm font-medium mb-2 text-gray-400 transition-colors group-focus-within:text-red-400">{{ __('Transfer Phone') }}</label>
                             <p class="text-xs text-gray-500 mb-2">{{ __('Phone number/account you transferred the money from') }}</p>
-                            <input type="text" name="transfer_phone" value="{{ old('transfer_phone', $data['transfer_phone'] ?? '') }}" required class="w-full px-4 py-3 bg-gray-950 border border-gray-700 rounded-xl text-gray-200 transition-all duration-300 input-focus placeholder-gray-600">
+                            <input type="text" name="transfer_phone" value="{{ old('transfer_phone', $data['transfer_phone'] ?? '') }}" required class="w-full px-4 py-3 bg-gray-950 border border-gray-700 rounded-xl text-gray-200 min-h-[44px] transition-all duration-300 input-focus placeholder-gray-600">
                             @error('transfer_phone') <p class="text-red-400 text-xs mt-1 flex items-center animate-in fade-in"><svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 0j2 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg> {{ $message }}</p> @enderror
                         </div>
                         <div>

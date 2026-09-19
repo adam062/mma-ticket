@@ -1,6 +1,6 @@
 <div id="scanner-modal" class="fixed inset-0 bg-black/90 flex items-center justify-center z-50 hidden">
     <div class="relative w-full max-w-md">
-        <video id="video" class="w-full rounded-xl shadow-2xl"></video>
+        <video id="video" class="w-full rounded-xl shadow-2xl" style="touch-action: none; user-select: none;"></video></video>
         <canvas id="canvas" class="hidden"></canvas>
         <button onclick="closeScanner()" class="absolute top-4 right-4 bg-gray-800 text-gray-400 px-4 py-2 rounded-lg font-bold hover:bg-gray-700">{{ __('Close') }}</button>
         <p id="scan-result" class="mt-4 text-center text-gray-400">{{ __('Point camera at a QR code') }}</p>

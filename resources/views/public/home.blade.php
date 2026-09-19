@@ -47,7 +47,7 @@
     </section>
 
     <!-- Event Info -->
-    <section class="py-20 bg-black">
+    <section class="py-20 bg-gray-950">
         <div class="container mx-auto px-4">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="animate-in fade-in-left duration-700">
@@ -79,7 +79,7 @@
     </section>
 
     <!-- Ticket Types -->
-    <section id="ticket-types" class="py-20 bg-black">
+    <section id="ticket-types" class="py-20 bg-gray-950">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16 animate-in fade-in-up duration-500">
                 <h2 class="text-4xl font-bold text-gray-100 mb-4">{{ __('Choose Your Ticket') }}</h2>
@@ -119,7 +119,7 @@
     </section>
 
     <!-- Payment Explanation -->
-    <section class="py-20 bg-black">
+    <section class="py-20 bg-gray-950">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16 animate-in fade-in-up duration-500">
                 <h2 class="text-4xl font-bold text-gray-100 mb-4">{{ __('Payment Information') }}</h2>
@@ -184,7 +184,7 @@
         <div class="container mx-auto px-4 relative z-10">
             <h2 class="text-3xl md:text-5xl font-bold mb-6 animate-bounce">{{ __('Ready to witness the action?') }}</h2>
             <p class="text-xl mb-8 text-gray-200">{{ __('Join us for the ultimate MMA experience!') }}</p>
-            <a href="{{ route('booking.create') }}" class="inline-flex items-center space-x-3 bg-black hover:bg-gray-900 text-red-400 font-bold text-xl py-5 px-12 rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300 group">
+            <a href="{{ route('booking.create') }}" class="inline-flex items-center space-x-3 bg-gray-800 hover:bg-gray-700 text-red-400 font-bold text-xl py-5 px-12 rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300 group">
                 <span>{{ __('Book Ticket') }}</span>
                 <span>{{ __('احجز تذكرتك') }}</span>
             </a>
